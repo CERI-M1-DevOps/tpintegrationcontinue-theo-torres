@@ -12,6 +12,7 @@ jobs:
       with:
         distribution: 'corretto'
         java-version: '21'
+        cache: 'maven'
     - name: cache
       uses: actions/cache@V4
     - name: buildPackage
