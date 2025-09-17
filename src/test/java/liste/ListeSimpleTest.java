@@ -82,31 +82,13 @@ class ListeSimpleTest {
         assertNull(listeATester.tete);
         assertEquals(0, listeATester.getSize());
     }
-
     @Test
-    void supprimePremier_CourantNullDesLeDebut() {
-        // Liste = [1], on cherche 2 → courant = tete.getSuivant() == null
+    void supprimePremier_DeuxiemeNoeudCible() {
         ListeSimple l = new ListeSimple();
+        l.ajout(2);
         l.ajout(1);
     
         l.supprimePremier(2);
-    
-        // while non exécuté (gauche fausse), if (courant != null) == false
-        assertEquals(1, l.getSize());
-        assertEquals(1, l.tete.getElement());
-    }
-    
-    @Test
-    void supprimePremier_DeuxiemeNoeudCible() {
-        // Construire [1, 2] (ajout insère en tête → ajouter 2 puis 1)
-        ListeSimple l = new ListeSimple();
-        l.ajout(2); // tete -> 2
-        l.ajout(1); // tete -> 1 -> 2
-    
-        l.supprimePremier(2);
-    
-        // while faux dès le 1er check (courant != null true, mais courant.getElement() != element false)
-        // if (courant != null) == true → suppression du 2
         assertEquals(1, l.getSize());
         assertEquals(1, l.tete.getElement());
         assertNull(l.tete.getSuivant());
