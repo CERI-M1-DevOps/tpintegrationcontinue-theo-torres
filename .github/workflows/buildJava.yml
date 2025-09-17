@@ -13,8 +13,12 @@ jobs:
         distribution: 'corretto'
         java-version: '21'
         cache: 'maven'
-    - name: cache
+    - name: cache maven
       uses: actions/cache@V4
+      with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
     - name: buildPackage
       env: 
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
