@@ -77,7 +77,8 @@ class ListeSimpleTest {
 
     @Test
     void supprimePremierListeVide() {
-        listeATester.supprimePremier(1);
+        listeATester.ajout(1);
+        listeATester.supprimePremier(2);
         listeATester.supprimePremier("aa");
         assertNull(listeATester.tete);
         assertEquals(0, listeATester.getSize());
