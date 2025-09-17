@@ -221,6 +221,13 @@ class ListeSimpleTest {
     }
 
     @Test
+    void supprimeTousListeVide() {
+        listeATester.supprimeTous();
+        assertNull(listeATester.tete);
+        assertEquals(0, listeATester.getSize());
+    }
+
+    @Test
     void echangerLePremierNoeudAvecUnAutre() {
         listeATester.ajout(5);
         listeATester.ajout(4);
