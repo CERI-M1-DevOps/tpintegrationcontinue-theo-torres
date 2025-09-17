@@ -81,9 +81,6 @@ class ListeSimpleTest {
         listeATester.supprimePremier("aa");
         assertNull(listeATester.tete);
         assertEquals(0, listeATester.getSize());
-        
-        l.ajout(1);
-        l.supprimePremier(2);
     }
 
     @Test
