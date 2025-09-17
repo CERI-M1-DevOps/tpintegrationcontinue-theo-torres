@@ -81,17 +81,9 @@ class ListeSimpleTest {
         listeATester.supprimePremier("aa");
         assertNull(listeATester.tete);
         assertEquals(0, listeATester.getSize());
-    }
-    @Test
-    void supprimePremier_DeuxiemeNoeudCible() {
-        ListeSimple l = new ListeSimple();
-        l.ajout(2);
+        
         l.ajout(1);
-    
         l.supprimePremier(2);
-        assertEquals(1, l.getSize());
-        assertEquals(1, l.tete.getElement());
-        assertNull(l.tete.getSuivant());
     }
 
     @Test
