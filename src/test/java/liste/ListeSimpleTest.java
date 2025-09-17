@@ -116,7 +116,7 @@ class ListeSimpleTest {
     }
     
     @Test
-    void supprimePremier_CourantNullDesLeDebut() {
+    void supprimePremierCourantNullDesLeDebut() {
         listeATester.ajout(1);
         listeATester.supprimePremier(2);
     
@@ -124,16 +124,6 @@ class ListeSimpleTest {
         assertEquals(1, listeATester.tete.getElement());
     }
     
-    /* @Test
-    void supprimePremier_DeuxiemeNoeudCible() {
-        listeATester.ajout(2); // tete -> 2
-        listeATester.ajout(1); // tete -> 1 -> 2
-    
-        listeATester.supprimePremier(2);
-        assertEquals(1, listeATester.getSize());
-        assertEquals(1, listeATester.tete.getElement());
-        assertNull(listeATester.tete.getSuivant());
-    } */
     @Test
     void supprimeTousUneSeuleFoisAuDebut() {
         listeATester.ajout(1);
