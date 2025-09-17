@@ -78,6 +78,7 @@ class ListeSimpleTest {
     @Test
     void supprimePremierListeVide() {
         listeATester.supprimePremier(1);
+        listeATester.supprimePremier("aa");
         assertNull(listeATester.tete);
         assertEquals(0, listeATester.getSize());
     }
@@ -219,6 +220,7 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3), Noeud(4), Noeud(5))", listeATester.toString());
         listeATester.echanger(r1, r2);
         assertEquals("ListeSimple(Noeud(1), Noeud(4), Noeud(3), Noeud(2), Noeud(5))", listeATester.toString());
+        listeATester.echanger(r1, r1);
     }
 
     @Test
