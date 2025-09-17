@@ -114,7 +114,26 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(4), Noeud(3), Noeud(2))", listeATester.toString());
         assertEquals(3, listeATester.getSize());
     }
-
+    
+    @Test
+    void supprimePremier_CourantNullDesLeDebut() {
+        listeATester.ajout(1);
+        listeATester.supprimePremier(2);
+    
+        assertEquals(1, listeATester.getSize());
+        assertEquals(1, listeATester.tete.getElement());
+    }
+    
+    /* @Test
+    void supprimePremier_DeuxiemeNoeudCible() {
+        listeATester.ajout(2); // tete -> 2
+        listeATester.ajout(1); // tete -> 1 -> 2
+    
+        listeATester.supprimePremier(2);
+        assertEquals(1, listeATester.getSize());
+        assertEquals(1, listeATester.tete.getElement());
+        assertNull(listeATester.tete.getSuivant());
+    } */
     @Test
     void supprimeTousUneSeuleFoisAuDebut() {
         listeATester.ajout(1);
