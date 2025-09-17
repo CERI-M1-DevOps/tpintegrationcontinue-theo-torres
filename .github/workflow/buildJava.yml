@@ -10,3 +10,4 @@ jobs:
       with:
         distribution: 'corretto' # See 'Supported distributions' for available options
         java-version: '21'
+    - uses: mvn –B package
