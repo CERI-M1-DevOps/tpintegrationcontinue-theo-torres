@@ -265,6 +265,6 @@ class ListeSimpleTest {
         Noeud r1 = listeATester.tete;
         Noeud r2 = listeATester.tete;
 
-        assertEquals("ListeSimple(Noeud(2), Noeud(1)", listeATester.toString());
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
     }
 }
