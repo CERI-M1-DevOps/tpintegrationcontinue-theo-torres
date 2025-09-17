@@ -1,0 +1,12 @@
+name: Java CI with Maven - Test and package
+on: [pull_request] # Ce workflow se déclenche sur un push dans le dépôt
+jobs:
+ job1: # Nom du job : Salutations
+  name: job1
+  runs-on: ubuntu-latest # OS où s'exécute le job
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'corretto' # See 'Supported distributions' for available options
+        java-version: '21'
