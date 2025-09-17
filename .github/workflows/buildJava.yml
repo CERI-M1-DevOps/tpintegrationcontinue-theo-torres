@@ -13,4 +13,4 @@ jobs:
         distribution: 'corretto'
         java-version: '21'
     - name: buildPackage
-      uses: mvn –B package
+      run: mvn –B package
