@@ -12,8 +12,8 @@ jobs:
       with:
         distribution: 'corretto'
         java-version: '21'
-    #- name: cache
-    #  uses: actions/cache@V4
+    - name: cache
+      uses: actions/cache@V4
     - name: buildPackage
       env: 
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
