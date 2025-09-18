@@ -1,0 +1,14 @@
+name: Documentation
+on: 
+  pull_request:
+    types: [closed] 
+jobs:
+ job1:
+  name: job1
+  runs-on: ubuntu-latest 
+  steps:
+    - name: Doc
+      run:  mvn -B javadoc::javadoc
+    - name: Deploy doc
+      uses: peaceiris/actions-gh-pages@v4
+    
