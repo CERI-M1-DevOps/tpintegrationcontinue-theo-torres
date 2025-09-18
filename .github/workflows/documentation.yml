@@ -1,14 +1,37 @@
-name: Documentation
-on: 
+name: Build & Publish Javadoc
+
+on:
   pull_request:
-    types: [closed] 
+    types: [closed]        # se déclenche quand la PR est "closed"…
+    branches:
+      - main               # …et seulement pour les PR fusionnées vers main (adapte si besoin)
+
+permissions:
+  contents: write          # requis pour pousser sur gh-pages avec GITHUB_TOKEN
+
 jobs:
- job1:
-  name: job1
-  runs-on: ubuntu-latest 
-  steps:
-    - name: Doc
-      run:  mvn -B javadoc::javadoc
-    - name: Deploy doc
-      uses: peaceiris/actions-gh-pages@v4
-    
+  publish-javadoc:
+    if: github.event.pull_request.merged == true   # …mais on n’exécute le job QUE si la PR a été fusionnée
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'     # adapte à ta version
+
+      - name: Build Javadoc
+        run: mvn -B javadoc:javadoc   # (note: c’est bien un seul “:”)
+                                      # la sortie sera dans target/site/apidocs
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: target/site/apidocs
+          force_orphan: true    
